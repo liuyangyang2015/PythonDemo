@@ -538,22 +538,7 @@
 
 # @Multiply(3) #Multiply is not a generator, but Multiply(3) is
 
-def type_check(correct_type):
-    def check(old_function):
-        def new_function(arg):
-            if (isinstance(arg, correct_type)):
-                return old_function(arg)
-            else:
-                print("Bad Type")
-        return new_function
-    return check
-
-@type_check(int)
-def times2(num):
-    return num*2
-
-print(times2(2))
-times2('Not A Number')
+# def type_check(correct_type):
 
 # @type_check(str)
 # def first_letter(word):
@@ -562,3 +547,22 @@ times2('Not A Number')
 # print(first_letter('Hello World'))
 # first_letter(['Not', 'A', 'String'])
 # print(type('Not'))
+
+import numpy as np
+# a = np.zeros((3,1))
+# print(a.shape)
+
+# def a():
+#     b = 3
+#     c =4
+#     return b , c
+# m =a()
+# print(m)
+#
+# a= np.array([1,2,3])
+# a=a.reshape(1,3)
+# print(a)
+# a=a.transpose()
+# print(a)
+# a=a.T
+# print(a)
