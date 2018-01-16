@@ -25,3 +25,37 @@
 #          print(line)
 #          if('EST' in line or 'EDT' in line):
 #              print(line)
+
+# import smtplib
+# server = smtplib.SMTP('smtp.126.com')
+# server.login("liuyangyang_2010@126.com","xxx")
+# server.sendmail("liuyangyang_2010@126.com","liuyangyang_2010@126.com","To: jcaesar@example.org \
+#                                                                 From: soothsayer@example.org \
+#                                                                 Beware the Ides of March.")
+# server.quit()
+
+def average(values):
+    """Computes the arithmetic mean of a list of numbers.
+
+    >>> print(average([20, 30, 70]))
+    40.0
+    """
+    return sum(values) / len(values)
+#
+# import doctest
+# a=doctest.testmod()
+# print(a)
+
+import unittest
+
+class TestStatisticalFunctions(unittest.TestCase):
+
+    def test_average(self):
+        self.assertEqual(average([20, 30, 70]), 40.0)
+        self.assertEqual(round(average([1, 5, 7]), 1), 4.3)
+        with self.assertRaises(ZeroDivisionError):
+            average([])
+        with self.assertRaises(TypeError):
+            average(20, 30, 70)
+
+unittest.main()  # Calling from the command line invokes all tests
