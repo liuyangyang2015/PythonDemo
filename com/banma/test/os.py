@@ -34,28 +34,57 @@
 #                                                                 Beware the Ides of March.")
 # server.quit()
 
-def average(values):
-    """Computes the arithmetic mean of a list of numbers.
-
-    >>> print(average([20, 30, 70]))
-    40.0
-    """
-    return sum(values) / len(values)
+# def average(values):
+#     """Computes the arithmetic mean of a list of numbers.
 #
-# import doctest
-# a=doctest.testmod()
+#     >>> print(average([20, 30, 70]))
+#     40.0
+#     """
+#     return sum(values) / len(values)
+# #
+# # import doctest
+# # a=doctest.testmod()
+# # print(a)
+#
+# import unittest
+#
+# class TestStatisticalFunctions(unittest.TestCase):
+#
+#     def test_average(self):
+#         self.assertEqual(average([20, 30, 70]), 40.0)
+#         self.assertEqual(round(average([1, 5, 7]), 1), 4.3)
+#         with self.assertRaises(ZeroDivisionError):
+#             average([])
+#         with self.assertRaises(TypeError):
+#             average(20, 30, 70)
+#
+# unittest.main()  # Calling from the command line invokes all tests
+
+# import reprlib
+# print(reprlib.repr(set('supercalifragilisticexpialidocious')))
+# import textwrap
+# doc = """The wrap() method is just like fill() except that it returns
+# ... a list of strings instead of one big string with newlines to separate
+# ... the wrapped lines."""
+# print(textwrap.fill(doc, width=40))
+# import locale
+# locale.setlocale(locale.LC_ALL, 'English_United States.1252')
+# conv = locale.localeconv()
+# x = 1234567.8
+# a=locale.format("%d", x, grouping=True)
+# b=locale.format_string("%s%.*f", (conv['currency_symbol'],conv['frac_digits'], x), grouping=True)
 # print(a)
+# print(b)
+from string import Template
+import time, os.path
+photofiles = ['img_1074.jpg', 'img_1076.jpg', 'img_1077.jpg']
+class BatchRename(Template):
+    delimiter = '%'
+fmt = input('Enter rename style (%d-date %n-seqnum %f-format):  ')
+t = BatchRename(fmt)
+date = time.strftime('%d%b%y')
+for i, filename in enumerate(photofiles):
+    base, ext = os.path.splitext(filename)
+    newname = t.substitute(d=date, n=i, f=ext)
+    print('{0} --> {1}'.format(filename, newname))
 
-import unittest
-
-class TestStatisticalFunctions(unittest.TestCase):
-
-    def test_average(self):
-        self.assertEqual(average([20, 30, 70]), 40.0)
-        self.assertEqual(round(average([1, 5, 7]), 1), 4.3)
-        with self.assertRaises(ZeroDivisionError):
-            average([])
-        with self.assertRaises(TypeError):
-            average(20, 30, 70)
-
-unittest.main()  # Calling from the command line invokes all tests
