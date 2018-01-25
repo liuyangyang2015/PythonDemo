@@ -104,3 +104,19 @@ y = MyClass()
 print( MyClass.i)
 print( x.i)
 print( y.i)
+
+print("==============")
+a=33
+try:
+    # if a ==3:
+        raise IndexError
+except IndexError as ie:
+    print('*********')
+else:
+    print('nnnnnnnnnnnnnnn')
+finally:
+    print('jjjjjjjjjjjjjjjjjjj')
+
+print('********************')
+for i in reversed(range(10)) :
+    print(i)
