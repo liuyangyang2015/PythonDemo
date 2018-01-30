@@ -1,3 +1,4 @@
+print(__name__)
 di = {1: 13, 2: 34,3:45}
 # print(di)
 # for key , value in di.items():
